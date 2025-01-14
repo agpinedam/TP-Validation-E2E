@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="2">
+
+  <testsuite name="tchat.test"
+    errors="0" failures="0" hostname="" id="" package="tchat.test" skipped="0"
+    tests="2" time="0.5050" timestamp="">
+  
+    <testcase name="Should load the tchatbot interface" classname="tchat.test" time="0.1780" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Should count the number of messages of spiderman bot for hello message is 2" classname="tchat.test" time="0.3270" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
