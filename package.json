@@ -8,7 +8,7 @@
     "api-start": "node ./api/index.js",
     "dist": "npx webpack --mode production --progress=profile",
     "lint": "eslint .",
-    "test-e2e--chrome": "npx nightwatch ./test/examples"
+    "test": "npx nightwatch ./test/examples"
   },
   "repository": {
     "type": "git",

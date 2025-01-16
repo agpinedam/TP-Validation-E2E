@@ -1,19 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="1"
-            tests="1">
+            failures="0"
+            tests="6">
 
   <testsuite name="examples.localisationPage"
-    errors="0" failures="1" hostname="" id="" package="examples" skipped="3"
-    tests="1" time="11.85" timestamp="">
+    errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
+    tests="6" time="4.024" timestamp="">
   
-    <testcase name="Verifica la visibilidad de la sección &#34;Accès&#34;" classname="examples.localisationPage" time="5.327" assertions="4">
+    <testcase name="El encabezado se renderiza correctamente" classname="examples.localisationPage" time="0.1330" assertions="5">
 
     
 
     
 
-      <failure message="Testing if element &lt;.list-group-item&gt; contains text &#39;Paris → Rosas&#39; in 5000ms - expected &#34;contains text &#39;Paris → Rosas&#39;&#34; but got: &#34;does not contain &#39;Paris → Rosas&#39;&#34; (5207ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/localisationPage.js:11:15)</failure>
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="La sección &#39;Accès&#39; muestra las opciones correctas" classname="examples.localisationPage" time="0.1060" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="La sección &#39;Carte&#39; incluye un iframe de Google Maps" classname="examples.localisationPage" time="0.03400" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="La sección &#39;Localisation&#39; tiene el contenido correcto" classname="examples.localisationPage" time="0.03500" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="La sección &#39;A proximité&#39; tiene contenido descriptivo" classname="examples.localisationPage" time="0.03900" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="La lista de &#39;Nos meilleures adresses&#39; incluye restaurantes" classname="examples.localisationPage" time="0.07300" assertions="4">
+
+    
+
+    
+
+    
 
     
     </testcase>
@@ -23,23 +70,6 @@
 
     
 
-  
-    
-    <testcase
-      name="Verifica la sección &#34;A proximité&#34;" classname="examples.localisationPage">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="Navega por la barra de navegación y verifica los enlaces" classname="examples.localisationPage">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="Verifica la galería de imágenes" classname="examples.localisationPage">
-      <skipped />
-    </testcase>
-    
   
   </testsuite>
 </testsuites>
