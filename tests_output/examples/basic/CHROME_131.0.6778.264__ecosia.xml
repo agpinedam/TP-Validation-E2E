@@ -5,9 +5,9 @@
 
   <testsuite name="examples.basic.ecosia"
     errors="0" failures="0" hostname="" id="" package="basic" skipped="0"
-    tests="4" time="9.156" timestamp="">
+    tests="4" time="7.459" timestamp="">
   
-    <testcase name="Verifica la visibilidad del header y el contenido principal" classname="examples.basic.ecosia" time="0.3390" assertions="6">
+    <testcase name="Verifica la visibilidad del header y el contenido principal" classname="examples.basic.ecosia" time="0.1330" assertions="6">
 
     
 
@@ -22,7 +22,7 @@
     
     </testcase>
   
-    <testcase name="Navega por la barra de navegación y verifica los enlaces" classname="examples.basic.ecosia" time="3.725" assertions="4">
+    <testcase name="Navega por la barra de navegación y verifica los enlaces" classname="examples.basic.ecosia" time="3.216" assertions="4">
 
     
 
@@ -33,7 +33,7 @@
     
     </testcase>
   
-    <testcase name="Verifica la sección de galería y características" classname="examples.basic.ecosia" time="0.06500" assertions="3">
+    <testcase name="Verifica la sección de galería y características" classname="examples.basic.ecosia" time="0.06000" assertions="3">
 
     
 
@@ -42,7 +42,7 @@
     
     </testcase>
   
-    <testcase name="Prueba la sección de tarifas" classname="examples.basic.ecosia" time="0.01900" assertions="1">
+    <testcase name="Prueba la sección de tarifas" classname="examples.basic.ecosia" time="0.02000" assertions="1">
 
     
     </testcase>

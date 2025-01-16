@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="1"
+            tests="3">
+
+  <testsuite name="examples.homePage copy"
+    errors="1" failures="1" hostname="" id="" package="examples" skipped="3"
+    tests="3" time="29.21" timestamp="">
+  
+    <testcase name="Verifica la estructura principal de la página" classname="examples.homePage copy" time="0.1240" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Prueba la barra de navegación" classname="examples.homePage copy" time="5.580" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    <error type="error"><![CDATA[
+    Error
+    at DescribeInstance.&lt;anonymous&gt; (/home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/homePage copy.js:16:8)
+    ]]></error>
+    
+    </testcase>
+  
+    <testcase name="Verifica la sección de accesos" classname="examples.homePage copy" time="5.242" assertions="3">
+
+    
+
+      <failure message="Testing if element &lt;i.fa-solid.fa-voiture&gt; is visible in 5000ms - expected &#34;is visible&#34; but got: &#34;not visible&#34; (5150ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/homePage copy.js:28:15)</failure>
+
+    
+    </testcase>
+  
+
+  
+    <system-err>
+       TimeoutError
+   An error occurred while running .click() command on &lt;.navbar-toggler&gt;: element not interactable
+  (Session info: chrome=131.0.6778.264)
+    {&#34;error&#34;:{&#34;name&#34;:&#34;ElementNotInteractableError&#34;,&#34;remoteStacktrace&#34;:&#34;&#34;},&#34;status&#34;:-1,&#34;value&#34;:null}
+
+    Error location:
+    /home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/homePage copy.js:16
+    –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+     14 |   it(&#39;Prueba la barra de navegación&#39;, function(browser) {
+     15 |     browser
+     16 |       .click(&#39;.navbar-toggler&#39;) // Abre el menú de navegación 
+     17 |       .waitForElementVisible(&#39;#navbarTogglerDemo03&#39;) // Verifica que el menú se despliega
+     18 |       .assert.visible(&#39;a.nav-link[href=&#34;/geo&#34;]&#39;) // Enlace a &#34;Localisation&#34;
+    –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+    </system-err>
+  
+
+    
+
+  
+    
+    <testcase
+      name="Prueba la sección del mapa" classname="examples.homePage copy">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Verifica la sección &#34;A proximité&#34;" classname="examples.homePage copy">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Prueba la galería de imágenes" classname="examples.homePage copy">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>
