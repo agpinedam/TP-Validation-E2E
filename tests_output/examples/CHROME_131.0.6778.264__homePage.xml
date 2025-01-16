@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="1"
-            tests="2">
+            failures="0"
+            tests="4">
 
   <testsuite name="examples.homePage"
-    errors="0" failures="1" hostname="" id="" package="examples" skipped="2"
-    tests="2" time="12.58" timestamp="">
+    errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
+    tests="4" time="3.946" timestamp="">
   
-    <testcase name="Verifica la visibilidad del header y el contenido principal" classname="examples.homePage" time="0.2710" assertions="6">
+    <testcase name="Verifica la visibilidad del header y el contenido principal" classname="examples.homePage" time="0.7290" assertions="6">
 
     
 
@@ -22,9 +22,33 @@
     
     </testcase>
   
-    <testcase name="Navigates through the navigation bar and verifies the links" classname="examples.homePage" time="5.328" assertions="2">
+    <testcase name="Navega por la barra de navegación y verifica los enlaces" classname="examples.homePage" time="0.1090" assertions="3">
 
-      <failure message="Testing if element &lt;a[href=&#34;/geo&#34;]&gt; is visible in 5000ms - expected &#34;is visible&#34; but got: &#34;not visible&#34; (5185ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/homePage.js:18:15)</failure>
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Verifica la sección de galería y características" classname="examples.homePage" time="0.2090" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Prueba la sección de tarifas con XPath" classname="examples.homePage" time="0.6260" assertions="3">
+
+    
+
+    
 
     
     </testcase>
@@ -34,18 +58,6 @@
 
     
 
-  
-    
-    <testcase
-      name="Verifies the gallery and features section" classname="examples.homePage">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="Tests the pricing section" classname="examples.homePage">
-      <skipped />
-    </testcase>
-    
   
   </testsuite>
 </testsuites>

@@ -3,6 +3,8 @@ describe('FeedBack Page Tests', function() {
 
   it('Verify visibility of received feedbacks', function(browser) {
     browser
+      .windowMaximize()
+      .pause(1000)
       .waitForElementVisible('.row > .col-12', 5000, 'Feedbacks are visible')
       .assert.containsText('.card-body blockquote p', 'This is a test message.', 'The feedback message is visible');
   });

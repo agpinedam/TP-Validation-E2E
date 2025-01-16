@@ -1,1 +1,1 @@
-{"modules":{"examples/feedback":{"modulePath":"/home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/feedback.js","status":"fail"}}}
+{"modules":{"examples/homePage":{"modulePath":"/home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/homePage.js","status":"pass"},"examples/feedback":{"modulePath":"/home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/feedback.js","status":"pass"}}}

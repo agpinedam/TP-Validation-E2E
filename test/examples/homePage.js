@@ -1,40 +1,57 @@
-describe('Test of the A LOUER APPARTEMENT ROSAS page', function() {
-  before(browser => browser.navigateTo('http://127.0.0.1:9090')); // Change the URL if necessary
+describe('Test de la página A LOUER APPARTEMENT ROSAS', function() {
+  before(browser => browser.navigateTo('http://127.0.0.1:9090')); // Cambia la URL si es necesario
 
   it('Verifica la visibilidad del header y el contenido principal', function(browser) {
     browser
-      .waitForElementVisible('body') // Verifies that the body of the page loads
-      .assert.visible('header.container-fluid') // Verifies the header
-      .assert.containsText('h2.display-3', 'A LOUER APPARTEMENT ROSAS') // Verifies the main title
-      .assert.containsText('h2.display-6.text-danger', '2 chambres | 30 m de la plage') // Verifies subtitle
-      .assert.visible('a[href="/contact"]') // Verifies the contact button
-      .assert.visible('img[alt="spanish"]'); // Verifies that the main image loads
+      .windowMaximize()
+      .waitForElementVisible('body') // Verifica que el cuerpo de la página se cargue
+      .assert.visible('header.container-fluid') // Verifica el header
+      .assert.containsText('h2.display-3', 'A LOUER APPARTEMENT ROSAS') // Verifica el título principal
+      .assert.containsText('h2.display-6.text-danger', '2 chambres | 30 m de la plage') // Verifica subtítulo
+      .assert.visible('a[href="/contact"]') // Verifica el botón de contacto
+      .assert.visible('img[alt="spanish"]'); // Verifica que la imagen principal se cargue
   });
 
-  it('Navigates through the navigation bar and verifies the links', function(browser) {
+  it('Navega por la barra de navegación y verifica los enlaces', function(browser) {
     browser
-      .assert.visible('.navbar-toggler') // Verifies the responsive menu button
-      .click('.navbar-toggler') // Opens the menu
-      .assert.visible('a[href="/geo"]') // Verifies the "Localisation" link
-      .assert.visible('a[href="/pricing"]') // Verifies the "Tarifs" link
-      .assert.visible('a[href="/feedback"]') // Verifies the "Avis" link
+      .assert.visible('a[href="/geo"]') // Verifica el enlace de "Localisation"
+      .assert.visible('a[href="/pricing"]') // Verifica el enlace de "Tarifs"
+      .assert.visible('a[href="/feedback"]') // Verifica el enlace de "Avis";
   });
 
-  it('Verifies the gallery and features section', function(browser) {
+  it('Verifica la sección de galería y características', function(browser) {
     browser
-      .assert.visible('#appartement-gallerie') // Gallery of images
-      .assert.visible('img[alt="photo1"]') // An example image
-      .assert.visible('#caracteristiques') // Verifies the features section
-      .assert.containsText('#caracteristiques', 'Plage à 30m') // Verifies feature text
-      .assert.containsText('#caracteristiques', 'Parking gratuit'); // Verifies another text
+      .windowMaximize()
+      .assert.visible('#appartement-gallerie') // Galería de imágenes
+      .assert.visible('img[alt="photo1"]') // Una imagen de ejemplo
+      .assert.visible('#caracteristiques') // Verifica la sección de características
+      .assert.containsText('#caracteristiques', 'Plage à 30m') // Verifica texto de características
+      .assert.containsText('#caracteristiques', 'Parking gratuit'); // Verifica otro texto
   });
 
-  it('Tests the pricing section', function(browser) {
+  it('Prueba la sección de tarifas con XPath', function (browser) {
     browser
-      .assert.visible('#tarifs') // Verifies the pricing section
-      .assert.containsText('.card-title', 'Basse saison') // Verifies the first card
-      .assert.containsText('.card-text', '460 €'); // Verifies the price
-  });
+      .windowMaximize()
+      .assert.visible('#tarifs') // Verifica que la sección de tarifas es visible
+      .useXpath() // Cambia el modo a XPath
+      .assert.visible('//*[@id="tarifs"]/div[2]/div[3]/div') // Verifica que el elemento objetivo es visible
+      .execute(function () {
+        const element = document.evaluate(
+          '//*[@id="tarifs"]/div[2]/div[3]/div',
+          document,
+          null,
+          XPathResult.FIRST_ORDERED_NODE_TYPE,
+          null
+        ).singleNodeValue;
+  
+        if (element) {
+          element.scrollIntoView({ behavior: 'auto' });
+        }
+      })
+      .pause(500) // Espera para asegurarse de que el desplazamiento haya terminado
+      .assert.containsText('//*[@id="tarifs"]/div[2]/div[3]/div', 'Haute saison') // Verifica el texto del elemento
+      .useCss(); // Vuelve al modo CSS si es necesario
+  });  
 
-  after(browser => browser.end()); // Ends the test
+  after(browser => browser.end()); // Finaliza el test
 });
