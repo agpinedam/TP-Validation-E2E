@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="2">
+
+  <testsuite name="examples.adminPage"
+    errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
+    tests="2" time="8.066" timestamp="">
+  
+    <testcase name="La tabla de mensajes se renderiza correctamente" classname="examples.adminPage" time="2.952" assertions="12">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="El botón de desconexión redirige al login" classname="examples.adminPage" time="0.2310" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

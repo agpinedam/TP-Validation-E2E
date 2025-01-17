@@ -5,9 +5,9 @@
 
   <testsuite name="examples.loginPage"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="1" time="6.250" timestamp="">
+    tests="1" time="5.749" timestamp="">
   
-    <testcase name="El formulario de inicio de sesión se renderiza y funciona correctamente" classname="examples.loginPage" time="2.491" assertions="9">
+    <testcase name="El formulario de inicio de sesión se renderiza y funciona correctamente" classname="examples.loginPage" time="2.339" assertions="9">
 
     
 

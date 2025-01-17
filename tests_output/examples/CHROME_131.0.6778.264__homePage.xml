@@ -5,9 +5,9 @@
 
   <testsuite name="examples.homePage"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="4" time="4.525" timestamp="">
+    tests="4" time="5.868" timestamp="">
   
-    <testcase name="Verifica la visibilidad del header y el contenido principal" classname="examples.homePage" time="0.4080" assertions="6">
+    <testcase name="Verifica la visibilidad del header y el contenido principal" classname="examples.homePage" time="0.6290" assertions="6">
 
     
 
@@ -22,7 +22,7 @@
     
     </testcase>
   
-    <testcase name="Navega por la barra de navegación y verifica los enlaces" classname="examples.homePage" time="0.5840" assertions="3">
+    <testcase name="Navega por la barra de navegación y verifica los enlaces" classname="examples.homePage" time="0.6500" assertions="3">
 
     
 
@@ -31,7 +31,7 @@
     
     </testcase>
   
-    <testcase name="Verifica la sección de galería y características" classname="examples.homePage" time="0.1010" assertions="5">
+    <testcase name="Verifica la sección de galería y características" classname="examples.homePage" time="0.2200" assertions="5">
 
     
 
@@ -44,7 +44,7 @@
     
     </testcase>
   
-    <testcase name="Prueba la sección de tarifas con XPath" classname="examples.homePage" time="0.5700" assertions="3">
+    <testcase name="Prueba la sección de tarifas con XPath" classname="examples.homePage" time="0.7940" assertions="3">
 
     
 
