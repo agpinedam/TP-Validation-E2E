@@ -1,41 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="0"
-            tests="3">
+            failures="1"
+            tests="1">
 
   <testsuite name="examples.feedback"
-    errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="3" time="7.522" timestamp="">
+    errors="0" failures="1" hostname="" id="" package="examples" skipped="2"
+    tests="1" time="13.26" timestamp="">
   
-    <testcase name="Verify visibility of received feedbacks" classname="examples.feedback" time="1.078" assertions="2">
+    <testcase name="Verify visibility of received feedbacks" classname="examples.feedback" time="6.318" assertions="2">
 
-    
-
-    
-    </testcase>
-  
-    <testcase name="Verify visibility of the feedback form" classname="examples.feedback" time="0.08700" assertions="5">
-
-    
-
-    
-
-    
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="Verify submission of the feedback form" classname="examples.feedback" time="1.999" assertions="5">
-
-    
-
-    
-
-    
-
-    
+      <failure message="The feedback message is visible in 5000ms - expected &#34;contains text &#39;This is a test message.&#39;&#34; but got: &#34;does not contain &#39;This is a test message.&#39;&#34; (5214ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/angie/Documents/s8/validacionClase22/quality-env-tests/test/examples/feedback.js:9:15)</failure>
 
     
     </testcase>
@@ -45,6 +19,18 @@
 
     
 
+  
+    
+    <testcase
+      name="Verify visibility of the feedback form" classname="examples.feedback">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Verify submission of the feedback form" classname="examples.feedback">
+      <skipped />
+    </testcase>
+    
   
   </testsuite>
 </testsuites>
