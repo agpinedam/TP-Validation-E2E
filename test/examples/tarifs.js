@@ -1,123 +1,115 @@
-const baseUrl = "http://127.0.0.1:9090/geo"; // Cambia esto por la URL de tu págin
+const baseUrl = "http://127.0.0.1:9090/pricing"; // Cambia esto por la URL de tu págin
 
 describe("Pruebas de la página principal", () => {
   before((browser) => browser.url(baseUrl));
 
   after((browser) => browser.end());
 
-  test("El encabezado se renderiza correctamente", (browser) => {
+  test("La cabecera muestra correctamente el contenido inicial", (browser) => {
     browser
-        .windowMaximize()
-        .waitForElementVisible("header.container-fluid")
-        .assert.containsText("header h2.home--header-title", "IDEALEMENT SITUE")
-        .assert.containsText("header h2.text-danger", "30 mètres de la plage")
-        .assert.visible("header a.btn-dark")
-        .assert.attributeContains(
-            "header a.btn-dark",
-            "href",
-            "/contact"
-      );
-  });
-
-  test("La sección 'Accès' muestra las opciones correctas", (browser) => {
+      .windowMaximize() // Maximizar la ventana al inicio
+      .assert.elementPresent("header.container-fluid", "El contenedor de cabecera está presente")
+      .useXpath()
+      .assert.containsText(
+        "//header//h2[contains(@class, 'home--header-title')]",
+        "UN PRIX POUR",
+        "El título principal contiene 'UN PRIX POUR'"
+      )
+      .assert.containsText(
+        "//header//h2[contains(@class, 'home--header-title')]",
+        "TOUTES LES SAISONS",
+        "El título principal contiene 'TOUTES LES SAISONS'"
+      )
+      .assert.containsText(
+        "//header//h2[contains(@class, 'display-6')]",
+        "Venez séjourner à Rosas",
+        "El subtítulo contiene 'Venez séjourner à Rosas'"
+      )
+      .assert.containsText(
+        "//header//p",
+        "De 460 € à 760 € / semaine",
+        "El texto del precio es correcto"
+      )
+      .assert.containsText(
+        "//header//a[@href='/contact']",
+        "Contactez-nous",
+        "El botón de contacto contiene el texto 'Contactez-nous'"
+      )
+  });  
+  
+  test("Las tarjeta basse saison", (browser) => {
+    // Verificar tarjeta de la baja temporada
     browser
-      .assert.containsText(".col-4 h5.card-title", "Accès")
       .execute(function () {
         const element = document.evaluate(
-          '/html/body/main/section[1]/div[1]/h5',
+          '//*[@id="tarifs-pricing"]/div/div[1]',
           document,
           null,
           XPathResult.FIRST_ORDERED_NODE_TYPE,
           null
         ).singleNodeValue;
-  
+
         if (element) {
           element.scrollIntoView({ behavior: 'auto' });
         }
       })
       .assert.containsText(
-        ".list-group-item.list-group-item-primary small",
-        "Temps de trajet : 8 heures"
+        '//*[@id="tarifs-pricing"]/div/div[1]/div/div/h5',
+        "Basse saison",
+        "El elemento contiene 'Basee saison'"
       )
       .assert.containsText(
-        ".list-group-item.list-group-item-primary p",
-        "Autoroute jusqu'à Figueras."
+        '//*[@id="tarifs-pricing"]/div/div[1]/div/div/p',
+        "460 € / semaine",
+        "El precio de la baja temporada es correcto"
       )
-      .assert.visible('.list-group-item', 'Paris → Rosas') // Verify first travel option
-      .useXpath() 
-      .assert.containsText(
-        "/html/body/main/section[1]/div[1]/div[1]/div[2]/div/a[1]/small",
-        "900 km."
+      .assert.elementPresent(
+        '//*[@id="tarifs-pricing"]/div/div[1]/div/div/div[2]/a',
+        "El botón de contacto está presente en la tarjeta de baja temporada"
       )
-  });  
-
-  test("La sección 'Carte' incluye un iframe de Google Maps", (browser) => {
-    browser
-      .useCss()
-      .assert.containsText(".col-8 h5.card-title", "Carte")
-      .assert.elementPresent("iframe[src*='google.com/maps']");
   });
 
-  test("La sección 'Localisation' tiene el contenido correcto", (browser) => {
+  test("Las tarjeta Moyenne saison", (browser) => {
+    // Verificar tarjeta de la baja temporada
     browser
-      // Verificar el título de la tarjeta
       .assert.containsText(
-        "body > main > section:nth-child(1) > div.col-8 > div > div > h5",
-        "Localisation"
+        '//*[@id="tarifs-pricing"]/div/div[2]/div/div/h5',
+        "Moyenne saison",
+        "El elemento contiene 'Moyenne saison'"
       )
-      // Verificar que el iframe tenga el atributo 'src' correcto
-      .assert.attributeContains(
-        ".card.border.border-light.bg-light.pt-2 iframe",
-        "src",
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1476.3135223062156!2d3.1618640724716895!3d42.26513647400954"
+      .assert.containsText(
+        '//*[@id="tarifs-pricing"]/div/div[2]/div/div/p',
+        "560 € / semaine",
+        "El precio de la baja temporada es correcto"
       )
-      
+      .assert.elementPresent(
+        '//*[@id="tarifs-pricing"]/div/div[2]/div/div/div[2]/a',
+        "El botón de contacto está presente en la tarjeta de baja temporada"
+      )
   });
 
-  test("La sección 'A proximité' tiene contenido descriptivo", (browser) => {
+  test("Las tarjeta Haute saison", (browser) => {
+    // Verificar tarjeta de la baja temporada
     browser
-      .execute(function () {
-        const element = document.evaluate(
-          '/html/body/main/section[2]/div[1]/h5',
-          document,
-          null,
-          XPathResult.FIRST_ORDERED_NODE_TYPE,
-          null
-        ).singleNodeValue;
-  
-        if (element) {
-          element.scrollIntoView({ behavior: 'auto' });
-        }
-      })
-      .useXpath() // Cambiar al modo XPath
       .assert.containsText(
-        '/html/body/main/section[2]/div[1]/h5',
-        "A proximité"
+        '//*[@id="tarifs-pricing"]/div/div[3]/div/div/h5',
+        "Haute saison",
+        "El elemento contiene 'Haute saison'"
       )
       .assert.containsText(
-        "/html/body/main/section[2]/div[1]/p[1]",
-        "Situé sur la promenade qui longe la mer"
-      );
-  });  
-
-  test("La lista de 'Nos meilleures adresses' incluye restaurantes", (browser) => {
-    browser
-      .useXpath() // Cambiar al modo XPath
-      .assert.containsText(
-        '/html/body/main/section[2]/div[2]/h5',
-        "Nos meilleures adresses"
+        '//*[@id="tarifs-pricing"]/div/div[3]/div/div/p',
+        "760 € / semaine",
+        "El precio de la baja temporada es correcto"
       )
-      .assert.containsText(
-        '/html/body/main/section[2]/div[2]/div[1]/ol/li[1]',
-        "Restaurant Rosa"
+      .assert.elementPresent(
+        '//*[@id="tarifs-pricing"]/div/div[3]/div/div/div[2]/a',
+        "El botón de contacto está presente en la tarjeta de baja temporada"
       )
+      .click('//*[@id="tarifs-pricing"]/div/div[3]/div/div/div[2]/a')
       .assert.containsText(
-        '/html/body/main/section[2]/div[2]/div[1]/ol/li[2]',
-        "Jamoneria Jamon 100 %"
-      )
-      .assert.containsText(
-        '/html/body/main/section[2]/div[2]/div[1]/ol/li[3]',
-        "idreria Toxt's"
+        '/html/body/header/div[2]/div/div[2]/h2[1]',
+        "CONTACTEZ-NOUS",
+        "El precio de la baja temporada es correcto"
       )
   });
   
