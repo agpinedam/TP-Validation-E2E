@@ -5,9 +5,9 @@
 
   <testsuite name="examples.geoPage"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="6" time="7.483" timestamp="">
+    tests="6" time="12.85" timestamp="">
   
-    <testcase name="El encabezado se renderiza correctamente" classname="examples.geoPage" time="0.2690" assertions="5">
+    <testcase name="El encabezado se renderiza correctamente" classname="examples.geoPage" time="0.3010" assertions="5">
 
     
 
@@ -20,7 +20,7 @@
     
     </testcase>
   
-    <testcase name="La sección &#39;Accès&#39; muestra las opciones correctas" classname="examples.geoPage" time="0.2090" assertions="5">
+    <testcase name="La sección &#39;Accès&#39; muestra las opciones correctas" classname="examples.geoPage" time="0.2140" assertions="5">
 
     
 
@@ -40,14 +40,14 @@
     
     </testcase>
   
-    <testcase name="La sección &#39;Localisation&#39; tiene el contenido correcto" classname="examples.geoPage" time="0.07400" assertions="2">
+    <testcase name="La sección &#39;Localisation&#39; tiene el contenido correcto" classname="examples.geoPage" time="0.07000" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="La sección &#39;A proximité&#39; tiene contenido descriptivo" classname="examples.geoPage" time="0.08400" assertions="2">
+    <testcase name="La sección &#39;A proximité&#39; tiene contenido descriptivo" classname="examples.geoPage" time="0.08600" assertions="2">
 
     
 

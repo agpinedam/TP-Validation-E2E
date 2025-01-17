@@ -5,9 +5,9 @@
 
   <testsuite name="examples.tarifsPage"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="2" time="5.977" timestamp="">
+    tests="2" time="10.54" timestamp="">
   
-    <testcase name="El formulario se renderiza correctamente" classname="examples.tarifsPage" time="0.3560" assertions="8">
+    <testcase name="El formulario se renderiza correctamente" classname="examples.tarifsPage" time="0.3020" assertions="8">
 
     
 
@@ -26,7 +26,7 @@
     
     </testcase>
   
-    <testcase name="El formulario permite el ingreso de datos" classname="examples.tarifsPage" time="2.075" assertions="3">
+    <testcase name="El formulario permite el ingreso de datos" classname="examples.tarifsPage" time="3.601" assertions="3">
 
     
 

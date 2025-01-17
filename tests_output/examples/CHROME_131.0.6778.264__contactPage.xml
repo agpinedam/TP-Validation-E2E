@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="2">
+
+  <testsuite name="examples.contactPage"
+    errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
+    tests="2" time="4.054" timestamp="">
+  
+    <testcase name="El encabezado de la página se renderiza correctamente" classname="examples.contactPage" time="0.1920" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="El formulario de contacto se renderiza correctamente" classname="examples.contactPage" time="0.2710" assertions="11">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
