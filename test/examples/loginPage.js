@@ -1,39 +1,38 @@
-const baseUrl = "http://127.0.0.1:9090/login"; // Cambia esto por la URL de tu págin
+const baseUrl = "http://127.0.0.1:9090/login"; // Changez cela par l'URL de votre page
 
-describe("Pruebas de la página principal", () => {
-    before((browser) => browser.url(baseUrl));
-  
-    after((browser) => browser.end());
+describe("Tests de la page principale", () => {
+  before((browser) => browser.url(baseUrl));
 
-    test("El formulario de inicio de sesión se renderiza y funciona correctamente", (browser) => {
-        browser
-        .waitForElementVisible("main.container", "El contenedor principal está visible")
-    
-        // Verificar estructura del formulario
-        .assert.elementPresent("form", "El formulario está presente")
-        .assert.elementPresent("form .input-group:nth-child(1) input[name='name']", "El campo de nombre está presente")
-        .assert.attributeEquals(
-            "form .input-group:nth-child(1) input[name='name']",
-            "placeholder",
-            "hello world",
-            "El campo de nombre tiene el placeholder correcto"
-        )
-        .assert.elementPresent("form .input-group:nth-child(2) input[name='password']", "El campo de contraseña está presente")
-        .assert.attributeEquals(
-            "form .input-group:nth-child(2) input[name='password']",
-            "type",
-            "password",
-            "El campo de contraseña tiene el tipo correcto"
-        )
-        .assert.elementPresent("form button[type='submit']", "El botón de envío está presente")
-        .assert.containsText("form button[type='submit']", "Envoyer", "El botón de envío contiene el texto correcto");
-    
-        // Verificar interacción con el formulario
-        browser
-        .setValue("form .input-group:nth-child(1) input[name='name']", "user")
-        .setValue("form .input-group:nth-child(2) input[name='password']", "user")
-        .click("form button[type='submit']")
-        //.pause(1000) // Pausa para permitir la navegación/redirección después del envío
-        .assert.urlContains("/admin", "La redirección al dashboard es exitosa después del envío del formulario"); // Cambia "/dashboard" según la redirección esperada.
-    });
+  after((browser) => browser.end());
+
+  test("Le formulaire de connexion est rendu et fonctionne correctement", (browser) => {
+    browser
+      .waitForElementVisible("main.container", "Le conteneur principal est visible")
+
+      // Vérification de la structure du formulaire
+      .assert.elementPresent("form", "Le formulaire est présent")
+      .assert.elementPresent("form .input-group:nth-child(1) input[name='name']", "Le champ 'Nom' est présent")
+      .assert.attributeEquals(
+        "form .input-group:nth-child(1) input[name='name']",
+        "placeholder",
+        "hello world",
+        "Le champ 'Nom' a le placeholder correct"
+      )
+      .assert.elementPresent("form .input-group:nth-child(2) input[name='password']", "Le champ 'Mot de passe' est présent")
+      .assert.attributeEquals(
+        "form .input-group:nth-child(2) input[name='password']",
+        "type",
+        "password",
+        "Le champ 'Mot de passe' a le type correct"
+      )
+      .assert.elementPresent("form button[type='submit']", "Le bouton d'envoi est présent")
+      .assert.containsText("form button[type='submit']", "Envoyer", "Le bouton d'envoi contient le texte correct");
+
+    // Vérification de l'interaction avec le formulaire
+    browser
+      .setValue("form .input-group:nth-child(1) input[name='name']", "user")
+      .setValue("form .input-group:nth-child(2) input[name='password']", "user")
+      .click("form button[type='submit']")
+      .assert.urlContains("/admin", "La redirection vers le tableau de bord est réussie"); // Ajustez "/admin" si nécessaire
+  });
 });

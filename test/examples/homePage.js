@@ -1,40 +1,40 @@
-describe('Test de la página A LOUER APPARTEMENT ROSAS', function() {
-  before(browser => browser.navigateTo('http://127.0.0.1:9090')); // Cambia la URL si es necesario
+describe('Test de la page A LOUER APPARTEMENT ROSAS', function() {
+  before(browser => browser.navigateTo('http://127.0.0.1:9090')); // Changez l'URL si nécessaire
 
-  it('Verifica la visibilidad del header y el contenido principal', function(browser) {
+  it('Vérifie la visibilité de l’en-tête et du contenu principal', function(browser) {
     browser
       .windowMaximize()
-      .waitForElementVisible('body') // Verifica que el cuerpo de la página se cargue
-      .assert.visible('header.container-fluid') // Verifica el header
-      .assert.containsText('h2.display-3', 'A LOUER APPARTEMENT ROSAS') // Verifica el título principal
-      .assert.containsText('h2.display-6.text-danger', '2 chambres | 30 m de la plage') // Verifica subtítulo
-      .assert.visible('a[href="/contact"]') // Verifica el botón de contacto
-      .assert.visible('img[alt="spanish"]'); // Verifica que la imagen principal se cargue
+      .waitForElementVisible('body') // Vérifie que le corps de la page est chargé
+      .assert.visible('header.container-fluid') // Vérifie l’en-tête
+      .assert.containsText('h2.display-3', 'A LOUER APPARTEMENT ROSAS') // Vérifie le titre principal
+      .assert.containsText('h2.display-6.text-danger', '2 chambres | 30 m de la plage') // Vérifie le sous-titre
+      .assert.visible('a[href="/contact"]') // Vérifie le bouton de contact
+      .assert.visible('img[alt="spanish"]'); // Vérifie que l’image principale est chargée
   });
 
-  it('Navega por la barra de navegación y verifica los enlaces', function(browser) {
+  it('Navigue dans la barre de navigation et vérifie les liens', function(browser) {
     browser
-      .assert.visible('a[href="/geo"]') // Verifica el enlace de "Localisation"
-      .assert.visible('a[href="/pricing"]') // Verifica el enlace de "Tarifs"
-      .assert.visible('a[href="/feedback"]') // Verifica el enlace de "Avis";
+      .assert.visible('a[href="/geo"]') // Vérifie le lien "Localisation"
+      .assert.visible('a[href="/pricing"]') // Vérifie le lien "Tarifs"
+      .assert.visible('a[href="/feedback"]'); // Vérifie le lien "Avis"
   });
 
-  it('Verifica la sección de galería y características', function(browser) {
-    browser
-      .windowMaximize()
-      .assert.visible('#appartement-gallerie') // Galería de imágenes
-      .assert.visible('img[alt="photo1"]') // Una imagen de ejemplo
-      .assert.visible('#caracteristiques') // Verifica la sección de características
-      .assert.containsText('#caracteristiques', 'Plage à 30m') // Verifica texto de características
-      .assert.containsText('#caracteristiques', 'Parking gratuit'); // Verifica otro texto
-  });
-
-  it('Prueba la sección de tarifas con XPath', function (browser) {
+  it('Vérifie la section galerie et caractéristiques', function(browser) {
     browser
       .windowMaximize()
-      .assert.visible('#tarifs') // Verifica que la sección de tarifas es visible
-      .useXpath() // Cambia el modo a XPath
-      .assert.visible('//*[@id="tarifs"]/div[2]/div[3]/div') // Verifica que el elemento objetivo es visible
+      .assert.visible('#appartement-gallerie') // Galerie d'images
+      .assert.visible('img[alt="photo1"]') // Une image d'exemple
+      .assert.visible('#caracteristiques') // Vérifie la section des caractéristiques
+      .assert.containsText('#caracteristiques', 'Plage à 30m') // Vérifie un texte de caractéristiques
+      .assert.containsText('#caracteristiques', 'Parking gratuit'); // Vérifie un autre texte
+  });
+
+  it('Teste la section tarifs avec XPath', function (browser) {
+    browser
+      .windowMaximize()
+      .assert.visible('#tarifs') // Vérifie que la section tarifs est visible
+      .useXpath() // Change le mode en XPath
+      .assert.visible('//*[@id="tarifs"]/div[2]/div[3]/div') // Vérifie que l’élément cible est visible
       .execute(function () {
         const element = document.evaluate(
           '//*[@id="tarifs"]/div[2]/div[3]/div',
@@ -48,10 +48,10 @@ describe('Test de la página A LOUER APPARTEMENT ROSAS', function() {
           element.scrollIntoView({ behavior: 'auto' });
         }
       })
-      .pause(500) // Espera para asegurarse de que el desplazamiento haya terminado
-      .assert.containsText('//*[@id="tarifs"]/div[2]/div[3]/div', 'Haute saison') // Verifica el texto del elemento
-      .useCss(); // Vuelve al modo CSS si es necesario
+      .pause(500) // Attend pour s'assurer que le défilement est terminé
+      .assert.containsText('//*[@id="tarifs"]/div[2]/div[3]/div', 'Haute saison') // Vérifie le texte de l'élément
+      .useCss(); // Retourne au mode CSS si nécessaire
   });  
 
-  after(browser => browser.end()); // Finaliza el test
+  after(browser => browser.end()); // Termine le test
 });

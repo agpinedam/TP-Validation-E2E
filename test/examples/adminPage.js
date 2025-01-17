@@ -1,11 +1,11 @@
-const baseUrl = "http://127.0.0.1:9090/login"; // Cambia esto por la URL correspondiente
+const baseUrl = "http://127.0.0.1:9090/login"; // Remplacez cela par l'URL correspondante
 
-describe("Pruebas de renderización de mensajes en la tabla", () => {
+describe("Tests de rendu des messages dans le tableau", () => {
   before((browser) => browser.url(baseUrl));
 
   after((browser) => browser.end());
 
-  test("La tabla de mensajes se renderiza correctamente", (browser) => {
+  test("Le tableau des messages se rend correctement", (browser) => {
 
     browser
         .setValue("form .input-group:nth-child(1) input[name='name']", "user")
@@ -13,59 +13,59 @@ describe("Pruebas de renderización de mensajes en la tabla", () => {
         .click("form button[type='submit']")
     browser
       .windowMaximize()
-      .assert.elementPresent("table.table", "La tabla principal está presente")
+      .assert.elementPresent("table.table", "Le tableau principal est présent")
       .assert.containsText(
         "table thead th:nth-child(1)",
         "dates",
-        "La columna 'dates' está correctamente etiquetada"
+        "La colonne 'dates' est correctement étiquetée"
       )
       .assert.containsText(
         "table thead th:nth-child(2)",
         "authors",
-        "La columna 'authors' está correctamente etiquetada"
+        "La colonne 'authors' est correctement étiquetée"
       )
       .assert.containsText(
         "table thead th:nth-child(3)",
         "arrived -> departure",
-        "La columna 'arrived -> departure' está correctamente etiquetada"
+        "La colonne 'arrived -> departure' est correctement étiquetée"
       )
       .assert.containsText(
         "table thead th:nth-child(4)",
         "messages",
-        "La columna 'messages' está correctamente etiquetada"
+        "La colonne 'messages' est correctement étiquetée"
       )
       .assert.containsText(
         "table thead th:nth-child(5)",
         "delete",
-        "La columna 'delete' está correctamente etiquetada"
+        "La colonne 'delete' est correctement étiquetée"
       )
-      .assert.elementPresent("table tbody tr", "Existen filas en el cuerpo de la tabla")
+      .assert.elementPresent("table tbody tr", "Il y a des lignes dans le corps du tableau")
       .assert.elementPresent(
         "table tbody tr:first-child td:nth-child(1)",
-        "La primera fila contiene una fecha"
+        "La première ligne contient une date"
       )
       .assert.elementPresent(
         "table tbody tr:first-child td:nth-child(2)",
-        "La primera fila contiene un autor"
+        "La première ligne contient un auteur"
       )
       .assert.elementPresent(
         "table tbody tr:first-child td:nth-child(3)",
-        "La primera fila contiene información de 'arrived -> departure'"
+        "La première ligne contient des informations sur 'arrived -> departure'"
       )
       .assert.elementPresent(
         "table tbody tr:first-child td:nth-child(4)",
-        "La primera fila contiene un mensaje"
+        "La première ligne contient un message"
       )
       .assert.elementPresent(
         "table tbody tr:first-child td:nth-child(5) button",
-        "La primera fila contiene un botón de eliminar"
+        "La première ligne contient un bouton de suppression"
       );
   });
 
-  test("El botón de desconexión redirige al login", (browser) => {
+  test("Le bouton de déconnexion redirige vers la page de connexion", (browser) => {
     browser
-      .assert.elementPresent("#navbarTogglerDemo03 > ul > li > button", "El botón de desconexión está presente")
+      .assert.elementPresent("#navbarTogglerDemo03 > ul > li > button", "Le bouton de déconnexion est présent")
       .click("#navbarTogglerDemo03 > ul > li > button")
-      .assert.urlContains("/login", "El usuario ha sido redirigido al login correctamente");
+      .assert.urlContains("/login", "L'utilisateur a été correctement redirigé vers la page de connexion");
   });
 });

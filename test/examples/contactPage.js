@@ -1,72 +1,72 @@
-const baseUrl = "http://127.0.0.1:9090/contact"; // Cambia esto según la configuración real
+const baseUrl = "http://127.0.0.1:9090/contact"; // Remplacez cela par la configuration réelle
 
-describe("Pruebas de la página de contacto", () => {
+describe("Tests de la page de contact", () => {
   before((browser) => browser.url(baseUrl));
 
   after((browser) => browser.end());
 
-  test("El encabezado de la página se renderiza correctamente", (browser) => {
+  test("L'en-tête de la page se rend correctement", (browser) => {
     browser
       .windowMaximize()
-      .assert.elementPresent("header", "El encabezado está presente")
+      .assert.elementPresent("header", "L'en-tête est présent")
       .assert.containsText(
         "header h2.display-3",
         "CONTACTEZ-NOUS",
-        "El título principal del encabezado es correcto"
+        "Le titre principal de l'en-tête est correct"
       )
       .assert.containsText(
         "header h2.display-6.text-danger",
         "remplissez le formulaire",
-        "El subtítulo del encabezado es correcto"
-      )
+        "Le sous-titre de l'en-tête est correct"
+      );
   });
 
-  test("El formulario de contacto se renderiza correctamente", (browser) => {
+  test("Le formulaire de contact se rend correctement", (browser) => {
     browser
-      .assert.elementPresent("form", "El formulario está presente")
+      .assert.elementPresent("form", "Le formulaire est présent")
       .assert.elementPresent(
         "form input[name='firstName']",
-        "El campo 'firstName' está presente"
+        "Le champ 'firstName' est présent"
       )
       .assert.attributeContains(
         "form input[name='firstName']",
         "placeholder",
         "Jean",
-        "El campo 'firstName' tiene el placeholder correcto"
+        "Le champ 'firstName' a le placeholder correct"
       )
       .assert.elementPresent(
         "form input[name='lastName']",
-        "El campo 'lastName' está presente"
+        "Le champ 'lastName' est présent"
       )
       .assert.elementPresent(
         "form input[name='mobilePhone']",
-        "El campo 'mobilePhone' está presente"
+        "Le champ 'mobilePhone' est présent"
       )
       .assert.attributeContains(
         "form input[name='mobilePhone']",
         "pattern",
         "0[6|7]{1}([0-9]{2}){4}",
-        "El campo 'mobilePhone' tiene el patrón de validación correcto"
+        "Le champ 'mobilePhone' a le modèle de validation correct"
       )
       .assert.elementPresent(
         "form input[name='email']",
-        "El campo 'email' está presente"
+        "Le champ 'email' est présent"
       )
       .assert.elementPresent(
         "form input[name='arrivedAt']",
-        "El campo 'arrivedAt' está presente"
+        "Le champ 'arrivedAt' est présent"
       )
       .assert.elementPresent(
         "form input[name='departureAt']",
-        "El campo 'departureAt' está presente"
+        "Le champ 'departureAt' est présent"
       )
       .assert.elementPresent(
         "form textarea[name='message']",
-        "El campo de mensaje está presente"
+        "Le champ de message est présent"
       )
       .assert.elementPresent(
         "form button[type='submit']",
-        "El botón de enviar está presente"
+        "Le bouton d'envoi est présent"
       );
   });
 });

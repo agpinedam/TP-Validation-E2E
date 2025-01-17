@@ -1,52 +1,115 @@
-const baseUrl = "http://127.0.0.1:9090/login"; // Cambia esto por la URL de tu página de inicio de sesión
+const baseUrl = "http://127.0.0.1:9090/pricing"; // Remplacez ceci par l'URL de votre page principale
 
-describe("Pruebas de la página de inicio de sesión", () => {
+describe("Tests de la page principale", () => {
   before((browser) => browser.url(baseUrl));
 
   after((browser) => browser.end());
 
-  test("El formulario se renderiza correctamente", (browser) => {
+  test("L'en-tête affiche correctement le contenu initial", (browser) => {
     browser
-      .windowMaximize()
-      .assert.elementPresent("main.container", "El contenedor principal está presente")
+      .windowMaximize() // Maximiser la fenêtre au début
+      .assert.elementPresent("header.container-fluid", "Le conteneur d'en-tête est présent")
       .useXpath()
-      .assert.elementPresent("//form", "El formulario está presente")
-      .assert.elementPresent("//form//input[@name='name']", "El campo de entrada para el nombre está presente")
-      .assert.attributeEquals(
-        "//form//input[@name='name']",
-        "placeholder",
-        "hello world",
-        "El campo de nombre tiene el placeholder correcto"
-      )
-      .assert.elementPresent("//form//input[@name='password']", "El campo de entrada para la contraseña está presente")
-      .assert.attributeEquals(
-        "//form//input[@name='password']",
-        "type",
-        "password",
-        "El campo de contraseña tiene el tipo correcto"
-      )
-      .assert.elementPresent("//form//button[@type='submit']", "El botón de envío está presente")
       .assert.containsText(
-        "//form//button[@type='submit']",
-        "Envoyer",
-        "El botón de envío contiene el texto correcto"
+        "//header//h2[contains(@class, 'home--header-title')]",
+        "UN PRIX POUR",
+        "Le titre principal contient 'UN PRIX POUR'"
+      )
+      .assert.containsText(
+        "//header//h2[contains(@class, 'home--header-title')]",
+        "TOUTES LES SAISONS",
+        "Le titre principal contient 'TOUTES LES SAISONS'"
+      )
+      .assert.containsText(
+        "//header//h2[contains(@class, 'display-6')]",
+        "Venez séjourner à Rosas",
+        "Le sous-titre contient 'Venez séjourner à Rosas'"
+      )
+      .assert.containsText(
+        "//header//p",
+        "De 460 € à 760 € / semaine",
+        "Le texte du prix est correct"
+      )
+      .assert.containsText(
+        "//header//a[@href='/contact']",
+        "Contactez-nous",
+        "Le bouton de contact contient le texte 'Contactez-nous'"
+      );
+  });  
+  
+  test("La carte basse saison", (browser) => {
+    // Vérifier la carte de la basse saison
+    browser
+      .execute(function () {
+        const element = document.evaluate(
+          '//*[@id="tarifs-pricing"]/div/div[1]',
+          document,
+          null,
+          XPathResult.FIRST_ORDERED_NODE_TYPE,
+          null
+        ).singleNodeValue;
+
+        if (element) {
+          element.scrollIntoView({ behavior: 'auto' });
+        }
+      })
+      .assert.containsText(
+        '//*[@id="tarifs-pricing"]/div/div[1]/div/div/h5',
+        "Basse saison",
+        "L'élément contient 'Basee saison'"
+      )
+      .assert.containsText(
+        '//*[@id="tarifs-pricing"]/div/div[1]/div/div/p',
+        "460 € / semaine",
+        "Le prix de la basse saison est correct"
+      )
+      .assert.elementPresent(
+        '//*[@id="tarifs-pricing"]/div/div[1]/div/div/div[2]/a',
+        "Le bouton de contact est présent dans la carte de basse saison"
       );
   });
 
-  test("El formulario permite el ingreso de datos", (browser) => {
+  test("La carte Moyenne saison", (browser) => {
+    // Vérifier la carte de la basse saison
     browser
-      .useXpath()
-      .setValue("//form//input[@name='name']", "user")
-      .setValue("//form//input[@name='password']", "user")
-      .assert.value("//form//input[@name='name']", "user", "El campo de nombre contiene los datos ingresados")
-      .assert.value(
-        "//form//input[@name='password']",
-        "user",
-        "El campo de contraseña contiene los datos ingresados"
+      .assert.containsText(
+        '//*[@id="tarifs-pricing"]/div/div[2]/div/div/h5',
+        "Moyenne saison",
+        "L'élément contient 'Moyenne saison'"
+      )
+      .assert.containsText(
+        '//*[@id="tarifs-pricing"]/div/div[2]/div/div/p',
+        "560 € / semaine",
+        "Le prix de la basse saison est correct"
+      )
+      .assert.elementPresent(
+        '//*[@id="tarifs-pricing"]/div/div[2]/div/div/div[2]/a',
+        "Le bouton de contact est présent dans la carte de basse saison"
       );
-      browser
-      .click("//form//button[@type='submit']")
-      .windowMaximize()
-      .assert.urlContains("/admin", "La redirección al dashboard es exitosa tras enviar el formulario"); // Cambia "/dashboard" según la redirección esperada.
+  });
+
+  test("La carte Haute saison", (browser) => {
+    // Vérifier la carte de la basse saison
+    browser
+      .assert.containsText(
+        '//*[@id="tarifs-pricing"]/div/div[3]/div/div/h5',
+        "Haute saison",
+        "L'élément contient 'Haute saison'"
+      )
+      .assert.containsText(
+        '//*[@id="tarifs-pricing"]/div/div[3]/div/div/p',
+        "760 € / semaine",
+        "Le prix de la basse saison est correct"
+      )
+      .assert.elementPresent(
+        '//*[@id="tarifs-pricing"]/div/div[3]/div/div/div[2]/a',
+        "Le bouton de contact est présent dans la carte de basse saison"
+      )
+      .click('//*[@id="tarifs-pricing"]/div/div[3]/div/div/div[2]/a')
+      .assert.containsText(
+        '/html/body/header/div[2]/div/div[2]/h2[1]',
+        "CONTACTEZ-NOUS",
+        "Le prix de la basse saison est correct"
+      );
   });
 });

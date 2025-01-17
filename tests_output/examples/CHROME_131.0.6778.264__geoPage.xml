@@ -5,9 +5,9 @@
 
   <testsuite name="examples.geoPage"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="6" time="12.85" timestamp="">
+    tests="6" time="7.375" timestamp="">
   
-    <testcase name="El encabezado se renderiza correctamente" classname="examples.geoPage" time="0.3010" assertions="5">
+    <testcase name="L&#39;en-tête se rend correctement" classname="examples.geoPage" time="0.2700" assertions="5">
 
     
 
@@ -20,7 +20,7 @@
     
     </testcase>
   
-    <testcase name="La sección &#39;Accès&#39; muestra las opciones correctas" classname="examples.geoPage" time="0.2140" assertions="5">
+    <testcase name="La section &#39;Accès&#39; affiche les options correctes" classname="examples.geoPage" time="0.2210" assertions="5">
 
     
 
@@ -33,28 +33,28 @@
     
     </testcase>
   
-    <testcase name="La sección &#39;Carte&#39; incluye un iframe de Google Maps" classname="examples.geoPage" time="0.06200" assertions="2">
+    <testcase name="La section &#39;Carte&#39; inclut une iframe Google Maps" classname="examples.geoPage" time="0.06600" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="La sección &#39;Localisation&#39; tiene el contenido correcto" classname="examples.geoPage" time="0.07000" assertions="2">
+    <testcase name="La section &#39;Localisation&#39; a le contenu correct" classname="examples.geoPage" time="0.07600" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="La sección &#39;A proximité&#39; tiene contenido descriptivo" classname="examples.geoPage" time="0.08600" assertions="2">
+    <testcase name="La section &#39;À proximité&#39; a un contenu descriptif" classname="examples.geoPage" time="0.08700" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="La lista de &#39;Nos meilleures adresses&#39; incluye restaurantes" classname="examples.geoPage" time="0.1460" assertions="4">
+    <testcase name="La liste de &#39;Nos meilleures adresses&#39; inclut des restaurants" classname="examples.geoPage" time="0.1490" assertions="4">
 
     
 

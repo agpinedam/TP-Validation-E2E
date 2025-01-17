@@ -5,9 +5,9 @@
 
   <testsuite name="examples.adminPage"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="2" time="7.404" timestamp="">
+    tests="2" time="9.110" timestamp="">
   
-    <testcase name="La tabla de mensajes se renderiza correctamente" classname="examples.adminPage" time="2.459" assertions="12">
+    <testcase name="Le tableau des messages se rend correctement" classname="examples.adminPage" time="3.551" assertions="12">
 
     
 
@@ -34,7 +34,7 @@
     
     </testcase>
   
-    <testcase name="El botón de desconexión redirige al login" classname="examples.adminPage" time="0.2420" assertions="2">
+    <testcase name="Le bouton de déconnexion redirige vers la page de connexion" classname="examples.adminPage" time="0.2350" assertions="2">
 
     
 

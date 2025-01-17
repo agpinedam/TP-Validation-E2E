@@ -1,11 +1,11 @@
-const baseUrl = "http://127.0.0.1:9090/geo"; // Cambia esto por la URL de tu págin
+const baseUrl = "http://127.0.0.1:9090/geo"; // Remplacez cela par l'URL de votre page
 
-describe("Pruebas de la página principal", () => {
+describe("Tests de la page principale", () => {
   before((browser) => browser.url(baseUrl));
 
   after((browser) => browser.end());
 
-  test("El encabezado se renderiza correctamente", (browser) => {
+  test("L'en-tête se rend correctement", (browser) => {
     browser
         .windowMaximize()
         .waitForElementVisible("header.container-fluid")
@@ -16,10 +16,10 @@ describe("Pruebas de la página principal", () => {
             "header a.btn-dark",
             "href",
             "/contact"
-      );
+        );
   });
 
-  test("La sección 'Accès' muestra las opciones correctas", (browser) => {
+  test("La section 'Accès' affiche les options correctes", (browser) => {
     browser
       .assert.containsText(".col-4 h5.card-title", "Accès")
       .execute(function () {
@@ -43,38 +43,37 @@ describe("Pruebas de la página principal", () => {
         ".list-group-item.list-group-item-primary p",
         "Autoroute jusqu'à Figueras."
       )
-      .assert.visible('.list-group-item', 'Paris → Rosas') // Verify first travel option
+      .assert.visible('.list-group-item', 'Paris → Rosas') // Vérifie la première option de trajet
       .useXpath() 
       .assert.containsText(
         "/html/body/main/section[1]/div[1]/div[1]/div[2]/div/a[1]/small",
         "900 km."
-      )
+      );
   });  
 
-  test("La sección 'Carte' incluye un iframe de Google Maps", (browser) => {
+  test("La section 'Carte' inclut une iframe Google Maps", (browser) => {
     browser
       .useCss()
       .assert.containsText(".col-8 h5.card-title", "Carte")
       .assert.elementPresent("iframe[src*='google.com/maps']");
   });
 
-  test("La sección 'Localisation' tiene el contenido correcto", (browser) => {
+  test("La section 'Localisation' a le contenu correct", (browser) => {
     browser
-      // Verificar el título de la tarjeta
+      // Vérifie le titre de la carte
       .assert.containsText(
         "body > main > section:nth-child(1) > div.col-8 > div > div > h5",
         "Localisation"
       )
-      // Verificar que el iframe tenga el atributo 'src' correcto
+      // Vérifie que l'iframe a l'attribut 'src' correct
       .assert.attributeContains(
         ".card.border.border-light.bg-light.pt-2 iframe",
         "src",
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1476.3135223062156!2d3.1618640724716895!3d42.26513647400954"
-      )
-      
+      );
   });
 
-  test("La sección 'A proximité' tiene contenido descriptivo", (browser) => {
+  test("La section 'À proximité' a un contenu descriptif", (browser) => {
     browser
       .execute(function () {
         const element = document.evaluate(
@@ -89,7 +88,7 @@ describe("Pruebas de la página principal", () => {
           element.scrollIntoView({ behavior: 'auto' });
         }
       })
-      .useXpath() // Cambiar al modo XPath
+      .useXpath() // Basculer en mode XPath
       .assert.containsText(
         '/html/body/main/section[2]/div[1]/h5',
         "A proximité"
@@ -100,9 +99,9 @@ describe("Pruebas de la página principal", () => {
       );
   });  
 
-  test("La lista de 'Nos meilleures adresses' incluye restaurantes", (browser) => {
+  test("La liste de 'Nos meilleures adresses' inclut des restaurants", (browser) => {
     browser
-      .useXpath() // Cambiar al modo XPath
+      .useXpath() // Basculer en mode XPath
       .assert.containsText(
         '/html/body/main/section[2]/div[2]/h5',
         "Nos meilleures adresses"
@@ -117,8 +116,7 @@ describe("Pruebas de la página principal", () => {
       )
       .assert.containsText(
         '/html/body/main/section[2]/div[2]/div[1]/ol/li[3]',
-        "idreria Toxt's"
-      )
+        "Sidreria Toxt's"
+      );
   });
-  
 });

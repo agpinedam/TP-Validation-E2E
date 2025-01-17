@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
             failures="0"
-            tests="2">
+            tests="4">
 
   <testsuite name="examples.tarifsPage"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="2" time="10.54" timestamp="">
+    tests="4" time="3.484" timestamp="">
   
-    <testcase name="El formulario se renderiza correctamente" classname="examples.tarifsPage" time="0.3020" assertions="8">
-
-    
-
-    
+    <testcase name="L&#39;en-tête affiche correctement le contenu initial" classname="examples.tarifsPage" time="0.3290" assertions="6">
 
     
 
@@ -26,7 +22,27 @@
     
     </testcase>
   
-    <testcase name="El formulario permite el ingreso de datos" classname="examples.tarifsPage" time="3.601" assertions="3">
+    <testcase name="La carte basse saison" classname="examples.tarifsPage" time="0.1150" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="La carte Moyenne saison" classname="examples.tarifsPage" time="0.1090" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="La carte Haute saison" classname="examples.tarifsPage" time="0.4790" assertions="4">
+
+    
 
     
 
