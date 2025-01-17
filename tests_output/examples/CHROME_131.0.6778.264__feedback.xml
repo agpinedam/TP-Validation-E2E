@@ -5,9 +5,9 @@
 
   <testsuite name="examples.feedback"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="2" time="8.566" timestamp="">
+    tests="2" time="5.637" timestamp="">
   
-    <testcase name="Verify visibility of the feedback form" classname="examples.feedback" time="1.331" assertions="5">
+    <testcase name="Verify visibility of the feedback form" classname="examples.feedback" time="0.6290" assertions="5">
 
     
 
@@ -20,7 +20,7 @@
     
     </testcase>
   
-    <testcase name="Verify submission of the feedback form" classname="examples.feedback" time="2.475" assertions="4">
+    <testcase name="Verify submission of the feedback form" classname="examples.feedback" time="1.094" assertions="4">
 
     
 

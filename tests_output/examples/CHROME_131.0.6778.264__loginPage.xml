@@ -5,9 +5,9 @@
 
   <testsuite name="examples.loginPage"
     errors="0" failures="0" hostname="" id="" package="examples" skipped="0"
-    tests="1" time="6.289" timestamp="">
+    tests="1" time="4.818" timestamp="">
   
-    <testcase name="Le formulaire de connexion est rendu et fonctionne correctement" classname="examples.loginPage" time="2.372" assertions="9">
+    <testcase name="Le formulaire de connexion est rendu et fonctionne correctement" classname="examples.loginPage" time="1.037" assertions="9">
 
     
 
